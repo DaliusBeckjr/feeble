@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %} New | Feeble {% endblock %}
+
+{% block content %}
+
+<section class="section">
+    <h1 class="title">This is the create page</h1>
+    <a href="{% url 'all_movies' %}" class="button is-rounded">dashboard</a>
+    <form action="#" method="post">
+        {% csrf_token %}
+        <div class="field">
+            <label class="label">Title:</label>
+            <div class="control">
+                <input type="text" name="title" id="">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Released:</label>
+            <div class="control">
+                <input type="date" name="release_date">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Duration:</label>
+            <div class="control">
+                <input type="number" name="duration">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Description:</label>
+            <div class="control">
+                <textarea name="description"></textarea> 
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <button class="button is-rounded">Submit</button>
+            </div>
+        </div>
+    </form>
+</section>
+
+{% endblock %}
