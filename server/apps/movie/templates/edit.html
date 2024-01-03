@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} New Movie | feeble {% endblock %}
+{% block title %} Edit Movie | feeble {% endblock %}
 
 {% block body %}
 
@@ -13,35 +13,36 @@
                 <div class="field">
                     <label class="label">Title:</label>
                     <div class="control">
-                        <input type="text" class="input" name="title">
+                        <input type="text" class="input" name="title" value="{{ movie.title }}">
                     </div>
                 </div>
                 <div class="field">
                     <label class="label">duration</label>
                     <div class="control">
-                        <input type="number" name="duration" class="input">
+                        <input type="number" name="duration" class="input" value="{{ movie.duration }}">
                     </div>
                 </div>
                 <div class="field">
                     <label  class="label">Description:</label>
                     <div class="control">
-                        <textarea name="description" class="textarea"></textarea>
+                        <textarea name="description" class="textarea">{{ movie.description }}</textarea>
                     </div>
                 </div>
                 <div class="field">
                     <label class="label">Released Date:</label>
                     <div class="control">
-                        <input type="date" name="released_date" class="input">
+                        <input type="date" name="released_date" class="input" value="{{ movie.released_date }}">
                     </div>
                 </div>
                 <div class="field">
                     <label class="label">Rated-R or PG-13?</label>
                     <div class="control">
                         <label class="radio">
-                            <input type="radio" name="rated" value="1"> Rated-R
+                            <input type="radio" name="rated" value="1" {% if movie.rated == 1 %} checked {% endif %}> 
+                            Rated-R
                         </label>
                         <label class="radio">
-                            <input type="radio" name="rated" value="2">
+                            <input type="radio" name="rated" value="2" {% if movie.rated == 2 %} checked {% endif %}>
                             PG-13
                         </label>
                     </div>

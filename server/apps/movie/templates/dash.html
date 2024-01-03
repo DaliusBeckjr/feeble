@@ -37,7 +37,11 @@
                                 Rated-R
                             {% endif %}
                         </th>
-                        <th>options</th>
+                        <th>
+                            <a href="/movies/{{ movie.id }}">show</a> |
+                            <a href="/movies/{{ movie.id}}/edit">edit</a> |
+                            <a href="/movies/{{ movie.id }}/delete">delete</a>
+                        </th>
                     </tr>
                     {% endfor %}
                 </tbody>

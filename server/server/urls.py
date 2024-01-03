@@ -1,3 +1,4 @@
+# server urls.py
 from django.contrib import admin
 from django.urls import path, include
 
@@ -5,5 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', include('apps.user.urls')),
-    path('movie/', include('apps.movie.urls')),
+    path('movies/', include('apps.movie.urls')),
 ]

@@ -21,19 +21,23 @@ def register(request):
         
         print(this_user)
         print('user is registered and logged in')
-        return redirect('movie/')
+        return redirect('movies:dashboard')
 
 
 def login(request):
     if request.method == "POST":
         email = request.POST['email']
 
-        user = User.objects.filter(email = email).first()
+        user = User.objects.filter(email = email)
         
-        if user and bcrypt.checkpw(request.POST['password'].encode(), user.password.encode()):
-            request.session['userid'] = user.id
-            print('user has logged in')
-            return redirect('movie/')
+        if user:
+            user = user[0]
+            
+            if bcrypt.checkpw(request.POST['password'].encode(), user.password.encode()):
+                request.session['userid'] = user.id
+                print('user has logged in')
+                print(user.id)
+                return redirect('movies:dashboard')
     return redirect('/')
 
 
@@ -41,6 +45,7 @@ def login(request):
 
 
 def logout(request):
-    user_id = request.session.pop('userid', None)
+    user_id = request.session.clear()
     print('user is logged out') # user is no longer in session
+    print(user_id)
     return redirect('/')
