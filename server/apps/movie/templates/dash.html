@@ -32,9 +32,9 @@
                         <th>{{ movie.released_date }}</th>
                         <th>
                             {% if movie.rated == 1 %}
-                                PG-13
-                            {% else %}
                                 Rated-R
+                            {% elif movie.rated == 2 %}
+                                PG-13
                             {% endif %}
                         </th>
                         <th>

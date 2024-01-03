@@ -55,14 +55,27 @@ def display(request, movie_id):
     return render(request, 'display.html', context)
 
 def update(request, movie_id):
+
     this_movie =  Movie.objects.get(id = movie_id)
-    print(this_movie)
+    # print(this_movie)
+
+    if request.method == 'POST':
+        created_by_id = request.session.get('userid')
+
+        this_movie.title = request.POST['title']
+        this_movie.duration = request.POST['duration']
+        this_movie.description = request.POST['description']
+        this_movie.released_date = request.POST['released_date']
+        this_movie.rated = request.POST['rated']
+        this_movie.created_by = User.objects.get(id = created_by_id)
+        this_movie.save()
+        print(this_movie)
+        return redirect('movies:dashboard')
+
     context = {
         'movie' : this_movie
     }
     return render(request, 'edit.html', context)
-    # if request.method == 'POST':
-        
 
 
 def delete(request, movie_id):

@@ -4,6 +4,10 @@
 
 {% block body %}
 
-<p>{{}}</p>
+<h1 class="title">{{ movie.id}} : {{ movie.title }}</h1>
+<p>{{ movie.released_date }}</p>
+<p>{{ movie.rated }}</p>
+<p>{{ movie.description }}</p>
+
 
 {% endblock %}

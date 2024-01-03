@@ -31,19 +31,17 @@
                 <div class="field">
                     <label class="label">Released Date:</label>
                     <div class="control">
-                        <input type="date" name="released_date" class="input" value="{{ movie.released_date }}">
+                        <input type="date" name="released_date" class="input" value="{{ movie.released_date|date:'Y-m-d' }}">
                     </div>
                 </div>
                 <div class="field">
                     <label class="label">Rated-R or PG-13?</label>
                     <div class="control">
                         <label class="radio">
-                            <input type="radio" name="rated" value="1" {% if movie.rated == 1 %} checked {% endif %}> 
-                            Rated-R
+                            <input type="radio" name="rated" value="1" {% if movie.rated == 1 %} checked {% endif %}> Rated-R
                         </label>
                         <label class="radio">
-                            <input type="radio" name="rated" value="2" {% if movie.rated == 2 %} checked {% endif %}>
-                            PG-13
+                            <input type="radio" name="rated" value="2" {% if movie.rated == 2 %} checked {% endif %}> PG-13
                         </label>
                     </div>
                 </div>
