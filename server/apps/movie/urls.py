@@ -18,5 +18,5 @@ urlpatterns = [
     path('<int:movie_id>/edit/', views.update, name = 'edit'),
     path('<int:movie_id>/delete/', views.delete, name = 'delete'), 
     
-    path('404/', views.not_found, name = '404')
+    # path('404/', views.not_found, name = '404')
 ]

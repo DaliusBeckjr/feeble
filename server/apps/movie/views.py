@@ -86,5 +86,5 @@ def delete(request, movie_id):
 
 
 
-def not_found(request, exception= None):
-    return render(request, '404.html', status= 404)
+# def not_found(request, exception= None):
+#     return render(request, '404.html', status= 404)
